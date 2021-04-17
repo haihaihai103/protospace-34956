@@ -1,0 +1,14 @@
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <a href="/users/<%= prototype.user.id %>">
+      <%= "こんにちは、#{current_user.name}さん" %>
+      <%= render partial: "prototype", collection: @prototypes %>
+      <% else %>
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+      
+    </div>
+    <% end %>
+  </div>
+</main>
