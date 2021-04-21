@@ -29,17 +29,20 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    if Prototype.update(prototype_params)
-      redirect_to root_path
+    @prototype = Prototype.find(params[:id])
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path
     else
       render :edit
     end
   end
 
-  def destory
+  def destroy
     prototype = Prototype.find(params[:id])
-    prototype.destory
+    prototype.destroy
+    redirect_to root_path
   end
+end
 
   private
 
@@ -52,4 +55,3 @@ class PrototypesController < ApplicationController
       redirect_to action: :index
     end
   end 
-end

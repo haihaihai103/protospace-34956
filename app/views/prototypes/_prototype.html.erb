@@ -1,5 +1,5 @@
 <div class="card">
-  <%= image_tag prototype.image, class: 'prototype-image' if prototype.image.attached? %>
+  <%= link_to (image_tag prototype.image), prototype_path(prototype.id), class: :card__img ,  method: :get %>
   <%= link_to prototype.title, prototype_path(prototype.id), class: :card__img %>
   </div>
   <div class="card__body">
@@ -7,6 +7,6 @@
     <p class="card__summary">
     <%= prototype.catch_copy %>
     </p>
-    <%= link_to "by #{prototype.user.name}", user_path(@prototypes.ids), class: :card__user %>
+    <%= link_to "by #{prototype.user.name}", user_path(prototype.user.id), class: :card__user %>
   </div>
 </div>
